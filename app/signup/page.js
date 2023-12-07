@@ -39,7 +39,7 @@ const Signup = () => {
 
     const configuration = {
       method: 'post',
-      url: 'http://localhost:8081/signup',
+      url: 'https://blessed-server-fb134c82a307.herokuapp.com/signup',
       data: userData,
     };
 

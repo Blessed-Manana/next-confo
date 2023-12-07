@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from "./UpdateProfile.module.css"
 import { TbCameraPlus } from 'react-icons/tb'
 import { Grid, Typography } from "@mui/material";
-
+import axios from "axios"
+import jwt_decode from "jwt-decode";
 
 
 const UpdateProfile = () => {
@@ -17,17 +18,18 @@ const UpdateProfile = () => {
         }
         console.log("useEffect is runnig")
         let email = localStorage.getItem("email")
-        fetch(`http://localhost:8081/getUser/${email}`)
+        fetch(`https://blessed-server-fb134c82a307.herokuapp.com/getUser/${email}`)
             .then((res) => {
                 if (res.status == 200) {
-                    setUsername(res.data.user)
-                    setEmail(res.data.user)
+                    return res.json()
                 } else {
                     console.log("Response is not found")
                 }
                 console.log("data: " + res.data.user);
 
             }).then((data) => {
+                // setUsername(res.data.user)
+                // setEmail(res.data.user)
                 console.log("data ==>", data)
             })
             .catch((error) => {

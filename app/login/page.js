@@ -34,7 +34,7 @@ const Login = () => {
             password: values.password,
         };
 
-        axios.post('http://localhost:8081/login', userData)
+        axios.post('https://blessed-server-fb134c82a307.herokuapp.com/login', userData)
             .then((response) => {
                 console.log('Login successful:', response.data);
                 window.location.href = '/home';
